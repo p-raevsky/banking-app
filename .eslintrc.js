@@ -18,7 +18,12 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-    "no-console": 2,
+    "no-console": 1,
     "react/react-in-jsx-scope": "off",
+    "prettier/prettier": [
+      "error",
+      { endOfLine: "auto" },
+      { usePrettierrc: true },
+    ],
   },
 };
