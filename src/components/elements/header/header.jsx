@@ -6,11 +6,11 @@ import { AppRoute } from "../../../const";
 function Header() {
   return (
     <header className="header">
-      <nav className="main-nav">
-        <div className="main-nav__logo">
-          <Link to={AppRoute.ROOT} className="main-nav__link-logo">
+      <nav className="main_nav">
+        <div className="logo">
+          <Link to={AppRoute.ROOT} className="link_logo">
             <img
-              className="main-nav__img-logo"
+              className="img_logo"
               src="https://via.placeholder.com/150x150"
               width="150"
               height="150"
@@ -19,33 +19,30 @@ function Header() {
           </Link>
         </div>
 
-        <ul className="main-nav__list">
-          <li className="main-nav__item">
-            <Link to={AppRoute.ROOT} className="main-nav__link--home">
+        <ul className="nav_list">
+          <li className="nav_item">
+            <Link to={AppRoute.ROOT} className="link_home">
               Home
             </Link>
           </li>
-          <li className="main-nav__item">
-            <Link
-              to={AppRoute.SEND_MONEY_PAGE}
-              className="main-nav__link--send"
-            >
+          <li className="nav_item">
+            <Link to={AppRoute.SEND_MONEY_PAGE} className="link_send">
               Send Money
             </Link>
           </li>
-          <li className="main-nav__item">
-            <Link to={"#"} className="main-nav__link--top-up">
+          <li className="nav_item">
+            <Link to={"#"} className="link_top_up">
               Top Up
             </Link>
           </li>
-          <li className="main-nav__item">
-            <Link to={"#"} className="main-nav__link--accounts">
+          <li className="nav_item">
+            <Link to={"#"} className="link_accounts">
               Accounts
             </Link>
           </li>
         </ul>
 
-        <Link to={"#"} className="main-nav__link-profile">
+        <Link to={"#"} className="link_profile">
           Profile
         </Link>
       </nav>

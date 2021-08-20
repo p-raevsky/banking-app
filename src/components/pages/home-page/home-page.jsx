@@ -6,7 +6,7 @@ import { AppRoute } from "../../../const";
 
 function HomePage() {
   return (
-    <div className={styles.div}>
+    <div className={styles.home_page}>
       <Link to={AppRoute.SEND_MONEY_PAGE}>
         <h1>Home page</h1>
       </Link>
