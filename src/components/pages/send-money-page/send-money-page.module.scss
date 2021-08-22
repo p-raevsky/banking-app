@@ -1,1 +1,48 @@
+.send_money_page {
+  display: grid;
+  flex-grow: 1;
+  padding-left: 33px;
 
+  grid-template-columns: max-content 1fr;
+}
+
+.title {
+  position: relative;
+
+  margin: 0;
+  margin-bottom: 20px;
+  padding-left: 21px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+
+    width: 16px;
+    height: 13px;
+
+    background: url("../../../assets/img/card.svg") no-repeat 0 0;
+  }
+}
+
+.second_column {
+  min-width: max-content;
+  padding-top: 50vh;
+
+  text-align: center;
+}
+
+.send_money_link {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+
+  svg {
+    margin-right: 12px;
+  }
+}

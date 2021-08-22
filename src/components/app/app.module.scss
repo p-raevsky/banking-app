@@ -1,0 +1,21 @@
+.layout {
+  display: flex;
+
+  background-image: url("../../assets/img/backdrop.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &_send {
+    background-color: #f1f1f1;
+    background-image: none;
+    ;
+  }
+}
+
+.main {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding-top: 50px;
+}

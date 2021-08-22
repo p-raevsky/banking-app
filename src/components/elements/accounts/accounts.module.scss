@@ -1,0 +1,74 @@
+.accounts {
+  padding-right: 29px;
+}
+
+.currency_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.currency_item {
+  width: 448px;
+  padding: 20px 17px 20px 22px;
+
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &_active {
+    position: relative;
+
+    margin-left: 27px;
+
+    background: linear-gradient(180deg, #fd3a6c 0%, #f5855c 100%);
+    box-shadow: 0 0 7px #ee4874;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 29px;
+      left: -29px;
+
+      width: 10px;
+      height: 10px;
+
+      background-color: #fd3a6c;
+      border-radius: 50%;
+    }
+
+    svg {
+      fill: #ffffff;
+    }
+
+    dd,
+    dt {
+      color: #ffffff;
+    }
+  }
+}
+
+.currency {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_term {
+    padding-left: 7px;
+
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  &_value {
+    margin-left: auto;
+
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
