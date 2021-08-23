@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import classNames from "classnames";
 
 import { AppRoute } from "../../const";
 import "./app.scss";
@@ -13,7 +12,7 @@ import SendMoneyPage from "../pages/send-money-page/send-money-page";
 function App() {
   return (
     <Router>
-      <div className={classNames(styles.layout, styles.layout_send)}>
+      <div className={styles.layout}>
         <Header />
         <main className={styles.main}>
           <Switch>

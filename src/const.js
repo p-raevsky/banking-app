@@ -3,29 +3,33 @@ export const AppRoute = {
   SEND_MONEY_PAGE: "/send",
 };
 
+export const APIRoute = {
+  DATA: "/data",
+};
+
 export const NavItems = {
   HOME: {
-    NAME: "Home",
-    PATH: "/",
-    CLASS_NAME: "link_home",
-    SVG_ID: "home",
+    name: "Home",
+    path: "/",
+    className: "link_home",
+    svgId: "home",
   },
   SEND: {
-    NAME: "Send Money",
-    PATH: "/send",
-    CLASS_NAME: "link_send",
-    SVG_ID: "send",
+    name: "Send Money",
+    path: "/send",
+    className: "link_send",
+    svgId: "send",
   },
   TOP_UP: {
-    NAME: "Top Up",
-    PATH: "#",
-    CLASS_NAME: "link_top_up",
-    SVG_ID: "piggy_bank_solid",
+    name: "Top Up",
+    path: "#",
+    className: "link_top_up",
+    svgId: "piggy_bank_solid",
   },
   ACCOUNTS: {
-    NAME: "Accounts",
-    PATH: "#",
-    CLASS_NAME: "link_accounts",
-    SVG_ID: "wallet",
+    name: "Accounts",
+    path: "#",
+    className: "link_accounts",
+    svgId: "wallet",
   },
 };

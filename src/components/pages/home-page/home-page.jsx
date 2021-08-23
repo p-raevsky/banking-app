@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
+import { fetchAccounts } from "../../../store/api-actions";
 import Accounts from "../../elements/accounts/accounts";
 import styles from "./home-page.module.scss";
 import recipient1 from "../../../assets/img/recipient-1.jpg";
@@ -13,6 +15,12 @@ import userPhoto3 from "../../../assets/img/user-photo-3.png";
 import sprite from "../../../assets/img/sprite.svg";
 
 function HomePage({ match: { path } }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAccounts());
+  }, [dispatch]);
+
   console.log("HomePage", path);
   return (
     <>

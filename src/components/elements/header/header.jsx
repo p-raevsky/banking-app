@@ -8,7 +8,7 @@ import logo from "../../../assets/img/logo.svg";
 import sprite from "../../../assets/img/sprite.svg";
 
 function Header() {
-  const [currentPath] = useState(AppRoute.ROOT);
+  const [currentPath] = useState(AppRoute.SEND_MONEY_PAGE);
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -26,25 +26,25 @@ function Header() {
 
         <ul className={styles.nav_list}>
           {Object.values(NavItems).map((item) => (
-            <Fragment key={item.NAME}>
+            <Fragment key={item.name}>
               <li
                 className={classNames(
                   styles.nav_item,
-                  currentPath === item.PATH && styles.nav_item_active
+                  currentPath === item.path && styles.nav_item_active
                 )}
               >
                 <Link
-                  to={item.PATH}
+                  to={item.path}
                   className={classNames(
                     styles.link,
-                    styles[item.CLASS_NAME],
-                    currentPath === item.PATH && styles.link_active
+                    styles[item.className],
+                    currentPath === item.path && styles.link_active
                   )}
                 >
                   <svg width="15" height="16" fill="#262626">
-                    <use xlinkHref={`${sprite}#${item.SVG_ID}`}></use>
+                    <use xlinkHref={`${sprite}#${item.svgId}`}></use>
                   </svg>
-                  <span>{item.NAME}</span>
+                  <span>{item.name}</span>
                 </Link>
               </li>
             </Fragment>
