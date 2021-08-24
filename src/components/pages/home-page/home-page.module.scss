@@ -1,5 +1,6 @@
 .layout {
   display: flex;
+  height: 100%;
 }
 
 .main {
@@ -31,7 +32,8 @@
 .second_column {
   flex-grow: 1;
   min-width: 500px;
-  padding: 33px 0 0 37px;
+  min-height: 100vh;
+  padding: 33px 0 37px 37px;
 
   background-color: #ffffff;
   border-top-left-radius: 40px;
