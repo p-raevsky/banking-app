@@ -5,7 +5,10 @@ export const fetchAccounts = () => (dispatch, _getState, api) =>
   api()
     .get(APIRoute.DATA)
     .then((data) => {
-      console.log("Fetch", data);
-      // dispatch(loadAccounts(data));
+      const {
+        body: { accounts },
+      } = data;
+      console.log("Fetch", accounts);
+      // dispatch(loadAccounts(accounts));
     })
     .catch(() => {});

@@ -1,0 +1,94 @@
+.extra {
+  width: 100%;
+  padding: 46px 56px 40px 33px;
+
+  border-top: 1px solid #dadada;
+  border-left: 1px solid #dadada;
+  border-top-left-radius: 40px;
+}
+
+.extra_list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 51px;
+}
+
+.extra_item {
+  position: relative;
+
+  width: 100%;
+  min-width: max-content;
+  margin-right: 24px;
+
+  &:first-child,
+  &:last-child {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: -50px;
+
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      right: 0;
+
+      width: 9px;
+      height: 15px;
+
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+  }
+
+  &:first-child {
+    margin-bottom: 38px;
+  }
+
+  &:first-child {
+    &:before {
+      width: 35px;
+      height: 25px;
+
+      background-image: url("../../../assets/img/get-card.svg");
+    }
+
+    &::after {
+      background-image: url("../../../assets/img/arrow.svg");
+    }
+  }
+
+  &:last-child {
+    &:before {
+      width: 32px;
+      height: 31px;
+
+      background-image: url("../../../assets/img/get-bonus.svg");
+    }
+
+    &::after {
+      background-image: url("../../../assets/img/arrow.svg");
+    }
+  }
+}
+
+.extra_desc {
+  font-size: 14px;
+  line-height: 14px;
+  font-family: "Roboto";
+  color: #797979;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+}

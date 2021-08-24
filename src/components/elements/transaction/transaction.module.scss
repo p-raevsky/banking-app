@@ -1,0 +1,83 @@
+.card_title {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #b5b5b5;
+
+  &_balance {
+    margin-bottom: 10px;
+  }
+
+  &_transaction {
+    margin-bottom: 27px;
+  }
+}
+
+.transaction_row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 87px;
+}
+
+.recipients_list {
+  display: flex;
+  align-items: center;
+}
+
+.transaction_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 31px 31px 19px;
+
+  font-size: 14px;
+  line-height: 17px;
+  color: #fd3a6c;
+
+  border: 1px solid #fd3a6c;
+  border-radius: 30px;
+
+  svg {
+    margin-bottom: 22px;
+  }
+
+  p {
+    width: 47px;
+    margin: 0;
+
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  img {
+    margin-bottom: 16px;
+
+    border-radius: 20px;
+  }
+
+  .recipient_name {
+    min-width: max-content;
+  }
+
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.recipient_item {
+  .transaction_link {
+    padding: 16px 20px;
+
+    border-color: transparent;
+  }
+
+  &:first-child {
+    margin-right: 18px;
+  }
+}
+
+.recipient_name {
+  color: #404040;
+}

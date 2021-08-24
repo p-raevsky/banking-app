@@ -1,0 +1,54 @@
+.card_title {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #b5b5b5;
+
+  &_balance {
+    margin-bottom: 10px;
+  }
+
+  &_transaction {
+    margin-bottom: 27px;
+  }
+}
+
+.balance_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 38px 19px 0;
+}
+
+.balance_value {
+  margin: 0;
+
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 96px;
+}
+
+.balance_link {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  padding: 25px 23px;
+
+  font-size: 14px;
+  line-height: 17px;
+  color: #fd3a6c;
+
+  border: 1px solid #fd3a6c;
+  border-radius: 20px;
+
+  svg {
+    margin-right: 9px;
+  }
+
+  span {
+    width: max-content;
+    padding-top: 8px;
+  }
+}

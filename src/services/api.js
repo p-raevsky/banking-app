@@ -7,7 +7,6 @@ export const createAPI = () => {
     timeout: ApiSettings.REQUEST_TIMEOUT,
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Expose-Headers": "x-api-key",
     },
   });
 

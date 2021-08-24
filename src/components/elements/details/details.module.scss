@@ -1,0 +1,115 @@
+.details {
+  padding-right: 51px;
+
+  &_row {
+    padding: 23px 0;
+
+    border: 1px solid #b5b5b5;
+    border-radius: 30px;
+
+    dl {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: 32px;
+      padding-left: 56px;
+    }
+
+    &:first-child {
+      margin-bottom: 26px;
+    }
+  }
+
+  &_top {
+    margin-bottom: 23px;
+  }
+
+  &_bottom {
+    padding-top: 23px;
+
+    border-top: 1px solid #b5b5b5;
+  }
+
+  &_term {
+    position: relative;
+
+    font-size: 18px;
+    line-height: 24px;
+    color: #b5b5b5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -34px;
+
+      width: 24px;
+      height: 24px;
+
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+
+    &_type::before {
+      background-image: url("../../../assets/img/check.svg");
+    }
+
+    &_currency::before {
+      background-image: url("../../../assets/img/currency.svg");
+    }
+
+    &_saving::before {
+      background-image: url("../../../assets/img/piggy-bank.svg");
+    }
+
+    &_sharing::before {
+      top: 4px;
+      left: -33px;
+
+      width: 18px;
+      height: 18px;
+
+      background-image: url("../../../assets/img/sharing.svg");
+    }
+  }
+
+  &_desc {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #262626;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+.sharing_list {
+  display: flex;
+  align-items: center;
+}
+
+.sharing_item {
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  img {
+    display: block;
+  }
+
+  span {
+    display: block;
+    padding: 5px 5px 5px 3px;
+
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    color: #b5b5b5;
+
+    border: 1px solid #b5b5b5;
+    border-radius: 50%;
+    ;
+  }
+}

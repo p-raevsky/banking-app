@@ -1,14 +1,19 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { useHistory } from "react-router";
 
 import styles from "./header.module.scss";
-import { AppRoute, NavItems } from "../../../const";
+import { AppRoute, Colors } from "../../../const";
+import { NavItems } from "../../../settings";
+
 import logo from "../../../assets/img/logo.svg";
 import sprite from "../../../assets/img/sprite.svg";
 
 function Header() {
-  const [currentPath] = useState(AppRoute.SEND_MONEY_PAGE);
+  const history = useHistory();
+  const currentPath = history.location.pathname;
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -41,9 +46,10 @@ function Header() {
                     currentPath === item.path && styles.link_active
                   )}
                 >
-                  <svg width="15" height="16" fill="#262626">
+                  <svg width="15" height="16" fill={Colors.BLACK}>
                     <use xlinkHref={`${sprite}#${item.svgId}`}></use>
                   </svg>
+
                   <span>{item.name}</span>
                 </Link>
               </li>
@@ -52,7 +58,7 @@ function Header() {
         </ul>
 
         <Link to={"#"} className={classNames(styles.link, styles.link_profile)}>
-          Profile
+          {currentPath === AppRoute.ROOT ? "Profile" : "Setting"}
         </Link>
       </nav>
     </header>

@@ -59,6 +59,11 @@ body {
   font-size: 16px;
   font-family: "Poppins", Arial, sans-serif;
   color: #262626;
+
+  background-image: url("../../assets/img/backdrop.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 img {
