@@ -34,13 +34,6 @@
   }
 }
 
-.second_column {
-  min-width: max-content;
-  padding-top: 38vh;
-
-  text-align: center;
-}
-
 .send_money_page {
   display: grid;
   flex-grow: 1;
@@ -57,4 +50,11 @@
   svg {
     margin-right: 12px;
   }
+}
+
+.second_column {
+  min-width: max-content;
+  padding-top: 38vh;
+
+  text-align: center;
 }

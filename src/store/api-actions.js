@@ -1,10 +1,10 @@
-// import { loadAccounts } from "./action";
+import { loadAccounts } from "./action";
 import { APIRoute } from "../const";
 
 export const fetchAccounts = () => (dispatch, _getState, api) =>
   api()
     .get(APIRoute.DATA)
-    .then(() => {
-      // dispatch(loadAccounts(accounts));
+    .then(({ body }) => {
+      dispatch(loadAccounts(body.accounts));
     })
     .catch(() => {});

@@ -1,4 +1,5 @@
 .accounts {
+  min-width: 504px;
   padding-right: 29px;
 }
 
@@ -72,4 +73,8 @@
     font-size: 20px;
     line-height: 30px;
   }
+}
+
+.warning {
+  font-weight: 500;
 }

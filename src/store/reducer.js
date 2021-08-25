@@ -4,6 +4,7 @@ import { loadAccounts, setCurrentAccount } from "../store/action";
 
 const initialState = {
   accounts: [
+    //Змінити на [] в разі вирішення проблеми з СORS
     {
       title: "Euro (EUR)",
       currency: "eur",
@@ -25,10 +26,10 @@ const initialState = {
       balance: "0",
     },
   ],
-  isDataLoaded: false,
+  isDataLoaded: true, //Змінити на false в разі вирішення проблеми з СORS
   currentAccount: {
     type: "eur",
-    balance: "0",
+    balance: "0.00",
   },
 };
 
