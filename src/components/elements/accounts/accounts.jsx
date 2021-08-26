@@ -1,102 +1,68 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 
 import styles from "./accounts.module.scss";
 import sprite from "../../../assets/img/sprite.svg";
 
-import LoadWrapper from "../load-wrapper/load-wrapper";
-import {
-  getAccounts,
-  getCurrentAccount,
-  getIsDataLoaded,
-} from "../../../store/selectors";
-import { fetchAccounts } from "../../../store/api-actions";
+import { getCurrentAccount, getAccounts } from "../../../store/selectors";
 import { setCurrentAccount } from "../../../store/action";
 import { Currencies } from "../../../settings";
-
-const getBalance = (currencyValue, accountsArray) => {
-  if (!accountsArray.length) {
-    return "0.00";
-  }
-
-  const [filteredAccount] = accountsArray.filter(
-    ({ currency }) => currency === currencyValue
-  );
-
-  return `${
-    Currencies[filteredAccount.currency.toUpperCase()].currencySign
-  }${Number(filteredAccount.balance).toFixed(2)}`;
-};
+import { getBalance } from "../../../utils";
 
 function Accounts() {
-  const accounts = useSelector(getAccounts);
-  const currentAccount = useSelector(getCurrentAccount);
-  const isDataLoaded = useSelector(getIsDataLoaded);
   const dispatch = useDispatch();
-
-  useEffect(() => dispatch(fetchAccounts()), []);
-  useEffect(
-    () =>
-      dispatch(
-        setCurrentAccount({
-          type: currentAccount.type,
-          balance: getBalance(currentAccount.type, accounts),
-        })
-      ),
-    []
-  );
+  const currentAccount = useSelector(getCurrentAccount);
+  const accounts = useSelector(getAccounts);
 
   return (
     <section className={styles.accounts}>
-      <LoadWrapper isLoaded={isDataLoaded}>
-        {accounts.length ? (
-          <ul className={styles.currency_list}>
-            {accounts.map((account) => (
-              <li
-                key={account.title}
-                data-currency={account.currency}
-                className={classNames(
-                  styles.currency_item,
-                  account.currency === currentAccount.type &&
-                    styles.currency_item_active
-                )}
-                onClick={(evt) => {
-                  const currency = evt.currentTarget.dataset.currency;
+      {accounts.length ? (
+        <ul className={styles.currency_list}>
+          {accounts.map((account) => (
+            <li
+              key={account.title}
+              data-currency={account.currency}
+              className={classNames(
+                styles.currency_item,
+                account.currency === currentAccount.type &&
+                  styles.currency_item_active
+              )}
+              onClick={(evt) => {
+                const currency = evt.currentTarget.dataset.currency;
 
-                  dispatch(
-                    setCurrentAccount({
-                      type: currency,
-                      balance: getBalance(currency, accounts),
-                    })
-                  );
-                }}
-              >
-                <dl className={styles.currency}>
-                  <svg
-                    width="28"
-                    height="28"
-                    fill={Currencies[account.currency.toUpperCase()].styleFill}
-                  >
-                    <use
-                      xlinkHref={`${sprite}#currency-${account.currency}`}
-                    ></use>
-                  </svg>
+                dispatch(
+                  setCurrentAccount({
+                    type: currency,
+                    balance: getBalance(currency, accounts),
+                  })
+                );
+              }}
+            >
+              <dl className={styles.currency}>
+                <svg
+                  width="28"
+                  height="28"
+                  fill={Currencies[account.currency.toUpperCase()].styleFill}
+                >
+                  <use
+                    xlinkHref={`${sprite}#currency-${account.currency}`}
+                  ></use>
+                </svg>
 
-                  <dt className={styles.currency_term}>{account.title}</dt>
+                <dt className={styles.currency_term}>{account.title}</dt>
 
-                  <dd className={styles.currency_value}>
-                    {Currencies[account.currency.toUpperCase()].currencySign}
-                    {Number(account.balance).toFixed(2)}
-                  </dd>
-                </dl>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className={styles.warning}>{"You don't have any accounts yet"}</p>
-        )}
-      </LoadWrapper>
+                <dd className={styles.currency_value}>
+                  {Currencies[account.currency.toUpperCase()].currencySign}
+                  {Number(account.balance).toFixed(2)}
+                </dd>
+              </dl>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className={styles.warning}>{"You don't have any accounts yet"}</p>
+      )}
     </section>
   );
 }

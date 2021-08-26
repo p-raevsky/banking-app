@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "../../elements/header/header";
 import Accounts from "../../elements/accounts/accounts";
+import LoadWrapper from "../../elements/load-wrapper/load-wrapper";
 
 import styles from "./send-money-page.module.scss";
 import sprite from "../../../assets/img/sprite.svg";
+
 import { Colors } from "../../../const";
+import { getIsDataLoaded } from "../../../store/selectors";
+import { fetchAccounts } from "../../../store/api-actions";
 
 function SendMoneyPage() {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchAccounts()), []);
+
+  const isDataLoaded = useSelector(getIsDataLoaded);
+
   return (
     <div className={styles.layout}>
       <Header />
@@ -19,7 +29,9 @@ function SendMoneyPage() {
           <div className={styles.first_column}>
             <h2 className={styles.title}>Send Money From:</h2>
 
-            <Accounts />
+            <LoadWrapper isLoaded={isDataLoaded}>
+              <Accounts />
+            </LoadWrapper>
           </div>
 
           <section className={styles.second_column}>

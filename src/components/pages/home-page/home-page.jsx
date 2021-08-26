@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Header from "../../elements/header/header";
 import Accounts from "../../elements/accounts/accounts";
@@ -7,9 +8,25 @@ import Extra from "../../elements/extra/extra";
 import Transaction from "../../elements/transaction/transaction";
 import Details from "../../elements/details/details";
 
+import LoadWrapper from "../../elements/load-wrapper/load-wrapper";
+
+import {
+  getCurrentAccount,
+  getAccounts,
+  getIsDataLoaded,
+} from "../../../store/selectors";
+import { fetchAccounts } from "../../../store/api-actions";
+
 import styles from "./home-page.module.scss";
 
 function HomePage() {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchAccounts()), []);
+
+  const accounts = useSelector(getAccounts);
+  const currentAccount = useSelector(getCurrentAccount);
+  const isDataLoaded = useSelector(getIsDataLoaded);
+
   return (
     <div className={styles.layout}>
       <Header />
@@ -23,14 +40,18 @@ function HomePage() {
           <div className={styles.wrap}>
             <h2 className={styles.title}>Your accounts</h2>
 
-            <Accounts />
+            <LoadWrapper isLoaded={isDataLoaded}>
+              <Accounts />
+            </LoadWrapper>
           </div>
 
           <Extra />
         </div>
 
         <section className={styles.second_column}>
-          <Balance />
+          <LoadWrapper isLoaded={isDataLoaded}>
+            <Balance currentAccount={currentAccount} accounts={accounts} />
+          </LoadWrapper>
 
           <Transaction />
 

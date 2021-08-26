@@ -1,16 +1,29 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import PropTypes from "prop-types";
 
 import styles from "./balance.module.scss";
 import sprite from "../../../assets/img/sprite.svg";
 import { Colors } from "../../../const";
 
-import { getCurrentAccount } from "../../../store/selectors";
+import { setCurrentAccount } from "../../../store/action";
+import { getBalance } from "../../../utils";
+import { useDispatch } from "react-redux";
 
-function Balance() {
-  const currentAccount = useSelector(getCurrentAccount);
+function Balance({ currentAccount, accounts }) {
+  const dispatch = useDispatch();
+
+  useEffect(
+    () =>
+      dispatch(
+        setCurrentAccount({
+          type: currentAccount.type,
+          balance: getBalance(currentAccount.type, accounts),
+        })
+      ),
+    []
+  );
 
   return (
     <div className={styles.balance}>
@@ -32,5 +45,10 @@ function Balance() {
     </div>
   );
 }
+
+Balance.propTypes = {
+  currentAccount: PropTypes.object,
+  accounts: PropTypes.array,
+};
 
 export default Balance;
